@@ -1,0 +1,67 @@
+/*!
+ * Start Bootstrap - Modern Business (https://startbootstrap.com/template-overviews/modern-business)
+ * Copyright 2013-2019 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-logomodern-business-nav/blob/master/LICENSE)
+ */
+
+body {
+  padding-top: 50px;
+  background-color:white;
+  font-family: "Candara";
+}
+
+.bg-dark{
+  background-color: #004aad!important;
+}
+.card-img-top{
+  width: 267px;
+  height: 267px;
+}
+.carousel-item {
+  height: 65vh;
+  min-height: 300px;
+  background: no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  min-width: 100%;
+  position:relative;
+  opacity: 85%;
+  filter: alpha(opacity=85);
+}
+
+.carousel-h3{
+  font-family: "Candara";
+  font-size: 40px;
+  font-weight: 800;
+  text-shadow: 2px 2px black;
+}
+
+.carousel-p{
+  font-family: "Candara";
+  font-size: 25px;
+  text-shadow: 2px 2px black;
+}
+
+.card{ 
+  text-align: center;
+}
+
+.card-text{
+  text-align: justify;
+}
+.card-header{
+font-weight: bold;
+}
+
+.breadcrumb{
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: gainsboro!important;
+}
+
+#navbarResponsive{
+  font-size: 18.5px;
+  font-family: "Candara";
+}

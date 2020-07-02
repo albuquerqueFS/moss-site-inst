@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Moss | The Innovation of Your Future</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="img/Moss.ico" type="image/x-icon" />
+
+    <!-- CSS Index -->
+    <link rel="stylesheet" href="./css/index.css">
+
+    <!-- CSS Animations -->
+    <link rel="stylesheet" href="./css/animations.css">
+
+
+</head>
+
+<body>
+    <div class="main">
+        <div class="containerA">
+            <form id="form_login" class="form-login form-flexA">
+                <div class="logo"><img class="moss-logo" src="img/Moss(2).jpg"></div>
+                <br>
+                <label class="text-style">E-mail:</label>
+                <input class="text-style" type="text" placeholder="Digite seu E-mail" name="login">
+
+                <label class="text-style mt-40">Senha:</label>
+                <input class="text-style" type="password" placeholder="Digite sua Senha" name="senha">
+
+                <p class="text-style mt-40" onclick="entrar()">Entrar</p>
+                <p class="text-style mt-80" id="btn_toRegister">Criar uma Conta</p>
+            </form>
+
+            <form id="form_register" class="form-register form-flexB" method="POST" onsubmit="return">
+                <div class="logo"><img class="moss-logo" src="img/Moss(2).jpg"></div>
+
+                <label class="text-style mt-20">Nome da Empresa:</label>
+                <input class="text-style" type="text" placeholder="Digite o Nome da Empresa" name="nomeEmpresa">
+
+                <label class="text-style mt-20">E-mail:</label>
+                <input class="text-style" type="text" placeholder="Digite seu E-mail" name="login">
+
+                <label class="text-style mt-20">Senha:</label>
+                <input class="text-style" type="password" placeholder="Digite sua Senha" name="senha">
+
+                <label class="text-style mt-20">Confirme sua senha:</label>
+                <input class="text-style" type="password" placeholder="Confirme sua Senha">
+
+                <p class="text-style mt-40" id="btn_entrar" onclick="cadastrar()">Cadastrar</p>
+                <p class="text-style mt-40" id="btn_toLogin">Já tenho uma Conta</p>
+            </form>
+        </div>
+
+        <div id="div_erro" style="background-color: sandybrown; color: maroon; display: none;"></div>
+        <div class="containerB">
+            <img class="logo-moss" src="img/Moss - Logo.png" alt="">
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js"
+        integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+    <!-- <script src="../api/routes/users.js"></script> -->
+</body>
+
+</html>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#form_register').hide();
+        $('#btn_toRegister').click(() => {
+
+            $('.containerA').removeClass('slide-right');
+            $('.containerA').removeClass('slide-left');
+            $('.containerB').removeClass('slide-left');
+            $('.containerB').removeClass('slide-right');
+
+            $('.containerA').addClass('slide-right');
+            $('.containerB').addClass('slide-left');
+
+            setTimeout(() => {
+                $('.form-flexA').css('display', 'none');
+                $('.form-flexB').css('display', 'flex');
+            }, 300);
+
+            setTimeout(() => {
+                $('.containerA').removeClass('slide-right');
+                $('.containerA').removeClass('slide-left');
+                $('.containerB').removeClass('slide-left');
+                $('.containerB').removeClass('slide-right');
+
+                $('.main').css('flex-direction', 'row-reverse');
+
+                if (window.matchMedia("(max-width: 900px)").matches) {
+                    $('.containerA').addClass('slide-left');
+                    $('.containerB').addClass('slide-right');
+
+                    setTimeout(() => {
+                        $('.main').css('flex-direction', 'row');
+                    }, 1010)
+                }
+            }, 1010);
+        });
+
+        $('#btn_toLogin').click(
+            irLogin
+        );
+    });
+
+    var irLogin = () => {
+
+        $('.containerA').removeClass('slide-right');
+        $('.containerA').removeClass('slide-left');
+        $('.containerB').removeClass('slide-left');
+        $('.containerB').removeClass('slide-right');
+
+        if (window.matchMedia("(max-width: 900px)").matches) {
+            $('.containerA').addClass('slide-right');
+            $('.containerB').addClass('slide-left');
+        } else {
+            $('.containerA').addClass('slide-left');
+            $('.containerB').addClass('slide-right');
+        }
+
+        setTimeout(() => {
+            $('.form-flexA').css('display', 'flex');
+            $('.form-flexB').css('display', 'none');
+        }, 300);
+
+        setTimeout(() => {
+            $('.containerA').removeClass('slide-right');
+            $('.containerA').removeClass('slide-left');
+            $('.containerB').removeClass('slide-left');
+            $('.containerB').removeClass('slide-right');
+
+            if (window.matchMedia("(max-width: 900px)").matches) {
+                $('.main').css('flex-direction', 'row-reverse');
+            } else {
+                $('.main').css('flex-direction', 'row');
+            }
+
+            if (window.matchMedia("(max-width: 900px)").matches) {
+
+                $('.containerA').addClass('slide-left');
+                $('.containerB').addClass('slide-right');
+
+                setTimeout(() => {
+                    $('.main').css('flex-direction', 'row');
+                }, 1010)
+            }
+        }, 1010);
+    }
+
+    // const dash = require('../../Aplicações\ NodeJS/AZURE_VERSION/health_check_app/api/routes/users');
+    // function requestUsers() {
+    //     const formulario = new URLSearchParams(new FormData(form_login));
+
+    //     var http = new XMLHttpRequest();
+    //     http.open('GET', 'http://localhost:3000/users', false);
+    //     http.send(null);
+    //     return http;
+    // }
+
+    function cadastrar() {
+        // requestUsers();
+        // aguardar();
+        var form = document.forms['form_register'];
+
+        var data = {
+            login: form.elements['login'].value,
+
+            senha: form.elements['senha'].value
+            // grupos: form.elements['grupos'].value,
+            // fk_empresa: sessionStorage.getItem('id')
+        }
+        console.log('funcionou?');
+
+        var config = {
+            headers: {
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Headers": "*"
+            }
+        }
+
+        axios.post('https://moss-api-prd.azurewebsites.net/users/cadastrar', data, config).then(resposta => {
+
+            if (resposta.status == 200) {
+
+                sessionStorage.login_usuario_meuapp = resposta.data.login;
+                // sessionStorage.nome_usuario_meuapp = json.nome;
+
+                // console.log('teste');
+                // window.location.href = './Home.html';
+
+                irLogin();
+            } else {
+
+                console.log('Erro de login!');
+
+                response.text().then(texto => {
+                    console.error(texto);
+                    // finalizar_aguardar(texto);
+                });
+            }
+        })
+        return true;
+    }
+
+    function entrar() {
+        // requestUsers();
+        var form = document.forms['form_login'];
+
+        var data = {
+            login: form.elements['login'].value,
+
+            senha: form.elements['senha'].value
+            // grupos: form.elements['grupos'].value,
+            // fk_empresa: sessionStorage.getItem('id')
+        }
+        axios.post('https://moss-api-prd.azurewebsites.net/users/autenticar', data).then(resposta => {
+
+            if (resposta.status == 200) {
+                sessionStorage.login_usuario_meuapp = resposta.data.login;
+                // sessionStorage.nome_usuario_meuapp = json.nome;
+
+                window.location.href = './Home.html';
+            } else {
+                console.log('Erro de login!');
+
+                response.text().then(texto => {
+                    console.error(texto);
+                    // finalizar_aguardar(texto);
+                });
+            }
+        })
+        return true;
+    }
+
+    // function entrar() {
+    //     // requestUsers();
+    //     var formulario = new URLSearchParams(new FormData(form_login));
+    //     fetch("https://moss-api-prd.azurewebsites.net/users/autenticar", {
+    //         method: "POST",
+    //         body: formulario
+    //     }).then(resposta => {
+
+    //         if (resposta.ok) {
+
+    //             resposta.json().then(json => {
+
+    //                 console.log('Redirecionando Login');
+    //                 sessionStorage.login = json.login;
+    //                 sessionStorage.senha = json.senha;
+
+    //                 window.location.href = './Home.html';
+    //             });
+
+    //         } else {
+
+    //             console.log('Erro de login!');
+
+    //             resposta.text().then(texto => {
+    //                 // console.error(texto);
+    //                 finalizar_aguardar(texto);
+    //             });
+    //         }
+    //     });
+
+    //     return true;
+    // }
+
+    function aguardar() {
+        btn_entrar.disabled = true;
+        // img_aguarde.style.display = 'block';
+        div_erro.style.display = 'none';
+    }
+
+    function finalizar_aguardar() {
+        btn_entrar.disabled = false;
+        // img_aguarde.style.display = 'none';
+        div_erro.style.display = 'block';
+    }
+
+</script>

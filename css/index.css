@@ -1,0 +1,198 @@
+@import url('https://fonts.googleapis.com/css2?family=Marko+One&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Marko One', serif;
+}
+
+.main {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.logo{
+    display: flex;
+    justify-content: center;
+}
+
+.moss-logo{
+    height: 10%;
+    width: 10%;
+}
+
+.containerA {
+    background-color: #0C0C0C;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.form-hidden {
+    display: none;
+}
+
+.form-flexA {
+    margin: auto auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-flexB {
+    
+    margin: auto auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-login label {
+    padding: 10px;
+    text-align: left;
+}
+
+.form-login input {
+    width: 30rem;
+    padding: 10px 10px;
+    color: black !important;
+}
+
+.form-login p {
+    text-align: center;
+    width: 30rem;
+    padding: 15px 40px;
+    border: 0px;
+    background-color: #004aad;
+}
+.form-flexB{
+    margin-top: 70px;
+}
+
+.form-register label {
+    padding: 10px;
+    text-align: left;
+}
+
+.form-register input {
+    width: 30rem;
+    padding: 10px 10px;
+    color: black !important;
+}
+
+.form-register p {
+    text-align: center;
+    width: 30rem;
+    padding: 15px 40px;
+    border: 0px;
+    background-color: #004aad;
+}
+
+.containerB {
+    background-color: whitesmoke;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-moss {
+    height: 9rem;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+/* tipografia */
+
+.text-style {
+    font-size: 15px;
+    font-family: 'Marko One', serif;
+    color: whitesmoke;
+}
+
+/* util */
+
+.mt-20 {
+    margin-top: 1.3rem;
+}
+
+.mt-40 {
+    margin-top: 2.5rem;
+    cursor: pointer;
+}
+
+.mt-80 {
+    margin-top: 5rem;
+    cursor: pointer;
+}
+
+/* media queries */
+
+/* celulares */
+@media screen and (max-width: 600px) {
+    html {
+        font-size: 10px;
+    }
+
+    .main {
+        width: 200vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .containerA {
+        height: 100vh;
+        width: 100vw;
+    }
+
+    .containerB {
+        height: 100vh;
+        width: 100vw;
+    }
+    
+}
+
+/* tablets */
+@media screen and (min-width: 600px) and (max-width: 900px) {
+    html {
+        font-size: 12px;
+    }
+
+    .main {
+        width: 200vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .containerA {
+        height: 100vh;
+        width: 100vw;
+    }
+
+    .containerB {
+        height: 100vh;
+        width: 100vw;   
+    }
+    
+}
+
+/* notebooks */
+@media screen and (min-width: 900px) and (max-width: 1200px) {
+    
+}
+
+/* Monitor Full HD */
+@media screen and (min-width: 1200px) {
+    
+}   
