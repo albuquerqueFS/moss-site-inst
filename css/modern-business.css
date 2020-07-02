@@ -6,12 +6,17 @@
 
 body {
   padding-top: 50px;
-  background-color:white;
+  background-color:whitesmoke;
   font-family: "Candara";
+}
+
+nav{
+  font-weight: 600 !important;
 }
 
 .bg-dark{
   background-color: #004aad!important;
+  
 }
 .card-img-top{
   width: 267px;
@@ -46,6 +51,7 @@ body {
 
 .card{ 
   text-align: center;
+  border: 1px solid #a09e9e;
 }
 
 .card-text{
@@ -55,13 +61,118 @@ body {
 font-weight: bold;
 }
 
-.breadcrumb{
-  padding-top: 20px;
-  padding-bottom: 20px;
-  background-color: gainsboro!important;
+
+.little-spaces{
+  margin-top: 2vw;
+}
+
+.spaces{
+  margin-top: 5.5vw;
+}
+
+.img-fluid{
+  border-radius: 7px;
+  opacity: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+.middle {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
 }
 
 #navbarResponsive{
   font-size: 18.5px;
   font-family: "Candara";
+}
+
+#price-list{
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: 5vw;
+  margin-left: 10vh;
+  box-sizing: border-box;
+}
+
+#btn-contact{
+  display: flex;
+  justify-content: center !important;
+  margin-left: -50vw;
+}
+
+#card-light-blue{
+  color: white;
+  background-color: #007bff!important;
+  border-bottom: 1px solid #007bff!important;
+}
+
+#card-dark-blue{
+  color: white;
+  background-color: #004aad!important;
+  border-bottom: 1px solid #004aad!important;
+}
+
+#card-gold{
+  color: black;
+  background-color: rgb(245, 185, 25)!important;
+  border-bottom: 1px solid rgb(245, 185, 25)!important;
+}
+
+#img-1:hover .img-fluid{
+  opacity: 0.3;
+} 
+
+#img-1:hover .middle{
+  opacity: 1;
+} 
+
+#img-2:hover .img-fluid{
+  opacity: 0.3;
+} 
+
+#img-2:hover .middle{
+  opacity: 1;
+} 
+
+#img-3:hover .img-fluid{
+  opacity: 0.3;
+} 
+
+#img-3:hover .middle{
+  opacity: 1;
+}
+
+#img-4:hover .img-fluid{
+  opacity: 0.3;
+} 
+
+#img-4:hover .middle{
+  opacity: 1;
+}
+
+#img-5:hover .img-fluid{
+  opacity: 0.3;
+} 
+
+#img-5:hover .middle{
+  opacity: 1;
+}
+
+#img-6:hover .img-fluid{
+  opacity: 0.3;
+} 
+
+#img-6:hover .middle{
+  opacity: 1;
 }
